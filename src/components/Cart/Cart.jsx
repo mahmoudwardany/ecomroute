@@ -18,7 +18,7 @@ export default function Cart() {
                 <meta charSet="utf-8" />
                 <title>Cart</title>
             </Helmet>
-      {cart.length !== 0?  <Table striped bordered hover className='mt-3 align-middle text-center'>
+      {cart !== undefined?  <Table striped bordered hover className='mt-3 align-middle text-center'>
       <thead>
         <tr>
           <th>Image</th>
