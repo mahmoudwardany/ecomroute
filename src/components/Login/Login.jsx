@@ -8,7 +8,7 @@ export default function Login({saveUser}) {
   const [error,setError]=useState('')
   const [loading,setLoading]=useState(true)
 const location=useLocation()
-  const redirectPath=location.state?.path || '/'
+  const redirectPath=location.state?.path || '/ecomroute'
 
 const nav=useNavigate()
   const validationSchema=Yup.object({

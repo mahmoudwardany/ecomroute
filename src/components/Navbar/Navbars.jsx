@@ -11,7 +11,7 @@ export default function Navbar({ userData, logOut }) {
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <Link className="navbar-brand " to="">
+          <Link className="navbar-brand " to="/ecomroute">
             <img src={imgLogo} alt="" />
           </Link>
           <button
@@ -35,7 +35,7 @@ export default function Navbar({ userData, logOut }) {
                   <Link
                     className="nav-link active"
                     aria-current="page"
-                    to="/home"
+                    to="/ecomroute"
                   >
                     Home
                   </Link>
