@@ -1,24 +1,57 @@
-import logo from './logo.svg';
+import {    RouterProvider, createBrowserRouter} from 'react-router-dom';
 import './App.css';
+import Layout from './components/Layout/Layout';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import ProductDetails from './components/ProductDetails/ProductDetails';
+import Cart from './components/Cart/Cart';
+import { useEffect, useState } from 'react';
+import jwtDecode from 'jwt-decode';
+import { CartContextProvider } from './share/CartContext';
+import Checkout from './components/Checkout/Checkout';
+import ForgetPassword from './components/forgetPassword/ForgetPassword';
+import ResetPassword from './components/forgetPassword/ResetPassword';
+import ProtectRoute from './share/ProtectRoute';
 
 function App() {
+  useEffect(()=>{
+    if(localStorage.getItem("userToken") !== null)
+    {
+      saveUser()
+    }
+  },[])
+  const [userData,setuserData]=useState(null)
+  function saveUser(){
+    let token=localStorage.getItem('userToken')
+    let encodeUser=jwtDecode(token)
+    setuserData(encodeUser)
+  }
+
+ 
+  let routes=createBrowserRouter([
+    {
+      path:"",element:<Layout userData={userData} setuserData={setuserData}/>,children:[
+        {path:'/register',element:<Register/>},
+        {path:"login",element:<Login saveUser={saveUser}/>},
+        {path:"forgetpassword",element:<ForgetPassword/>},
+        {path:"resetpassword",element:<ResetPassword/>},
+   {index:true,element:<ProtectRoute><Home/></ProtectRoute>},
+        {path:'productDetails/:id',element:<ProtectRoute><ProductDetails/></ProtectRoute>},
+        {path:'checkout/:cartId',element:<ProtectRoute><Checkout/></ProtectRoute>},
+        {path:'cart',element:<ProtectRoute><Cart/></ProtectRoute>}
+
+       
+      ]
+    }
+  ])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartContextProvider >
+      <RouterProvider router={routes}/>
+      
+    </CartContextProvider>
+   
   );
 }
 
