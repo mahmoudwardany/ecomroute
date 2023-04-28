@@ -52,11 +52,11 @@ setLoading(true)
       <form className='my-3' onSubmit={formRegister.handleSubmit} >
      {error?<div className='alert alert-danger'>{error}</div>:""}   
         <label htmlFor="email">Email</label>
-        <input onChange={formRegister.handleChange}  type="email"name='email'id='email'className='form-control col-sm-12 mb-3' />
-        {formRegister.errors.email ?<div className='text-danger'>{formRegister.errors.email}</div>:""}
+        <input onChange={formRegister.handleChange} onBlur={formRegister.handleBlur}  type="email"name='email'id='email'className='form-control col-sm-12 mb-3' />
+        {formRegister.errors.email && formRegister.touched.email  ?<div className='text-danger'>{formRegister.errors.email}</div>:""}
         <label htmlFor="password">Password</label>
-        <input onChange={formRegister.handleChange}  type="password"name='password'id='password'className='form-control' />
-        {formRegister.errors.password ?<div className='text-danger'>{formRegister.errors.password}</div>:""}
+        <input onChange={formRegister.handleChange} onBlur={formRegister.handleBlur}  type="password"name='password'id='password'className='form-control' />
+        {formRegister.errors.password && formRegister.touched.password  ?<div className='text-danger'>{formRegister.errors.password}</div>:""}
 <div className='mt-2 col-md-12 row g-2'>
   <Link to='/forgetpassword' className='mx-3 col-md-3 '>Forget Password</Link>
 <Link to='/register'className='col-md-6 col-sm-12 ' >Don't have an Account </Link>
