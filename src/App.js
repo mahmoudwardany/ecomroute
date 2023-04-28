@@ -34,7 +34,7 @@ function App() {
   let routes=createBrowserRouter([
     {
       path:"",element:<Layout userData={userData} setuserData={setuserData}/>,children:[
-        {path:'/register',element:<Register/>},
+        {path:'register',element:<Register/>},
         {path:"login",element:<Login saveUser={saveUser}/>},
         {path:"forgetpassword",element:<ForgetPassword/>},
         {path:"resetpassword",element:<ResetPassword/>},
