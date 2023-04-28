@@ -42,7 +42,7 @@ setLoading(true)
     }
        }
   return (
-    <div className='w-75'>
+    <div className='w-75 col-sm-12'>
       <Helmet>
                 <meta charSet="utf-8" />
                 <title>Login</title>
@@ -51,15 +51,15 @@ setLoading(true)
 
       <form className='my-3' onSubmit={formRegister.handleSubmit} >
      {error?<div className='alert alert-danger'>{error}</div>:""}   
-        <label htmlFor="email">email</label>
-        <input onChange={formRegister.handleChange}  type="email"name='email'id='email'className='form-control' />
+        <label htmlFor="email">Email</label>
+        <input onChange={formRegister.handleChange}  type="email"name='email'id='email'className='form-control col-sm-12 mb-3' />
         {formRegister.errors.email ?<div className='text-danger'>{formRegister.errors.email}</div>:""}
-        <label htmlFor="password">password</label>
+        <label htmlFor="password">Password</label>
         <input onChange={formRegister.handleChange}  type="password"name='password'id='password'className='form-control' />
         {formRegister.errors.password ?<div className='text-danger'>{formRegister.errors.password}</div>:""}
-<div className='mt-2 col-md-12'>
-  <Link to='/forgetpassword' className='mx-3 '>Forget Password</Link>
-<Link to='/register' >Don't have an Account </Link>
+<div className='mt-2 col-md-12 row g-2'>
+  <Link to='/forgetpassword' className='mx-3 col-md-3 '>Forget Password</Link>
+<Link to='/register'className='col-md-6 col-sm-12 ' >Don't have an Account </Link>
 </div>
 
 

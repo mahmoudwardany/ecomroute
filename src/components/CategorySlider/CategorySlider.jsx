@@ -56,8 +56,11 @@ export default function CategorySlider() {
   <h3>Shop Poular Caregories</h3>
   <Slider {...settings}>
         {categories.map(( category) => <div  key={category._id}>
-          <img className='w-100' height={200} src={category.image} alt="" />
+          <div className='mx-4'>
+            <img className='w-100' height={200} src={category.image} alt="" />
           <h2 className='h6 pt-2 tex-center ms-3'>{category.name}</h2>
+          </div>
+          
         </div>)}
        </Slider>
   </div>

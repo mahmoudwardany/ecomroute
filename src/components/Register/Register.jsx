@@ -51,27 +51,27 @@ setLoading(true)
 
       <form className='my-3' onSubmit={formRegister.handleSubmit} >
      {error?<div className='alert alert-danger'>{error}</div>:""}   
-<label htmlFor="name">name</label>
-        <input onChange={formRegister.handleChange} type="text"name='name'id='name'className='form-control' onBlur={formRegister.handleBlur}/>
+<label htmlFor="name">Name</label>
+        <input onChange={formRegister.handleChange} type="text"name='name'id='name'className='form-control mb-3' onBlur={formRegister.handleBlur}/>
         {formRegister.errors.name && formRegister.touched.name ?<div className='text-danger'>{formRegister.errors.name}</div>:""}
-        <label htmlFor="email">email</label>
-        <input onChange={formRegister.handleChange}  type="email"name='email'id='email'className='form-control'onBlur={formRegister.handleBlur} />
+        <label htmlFor="email">Email</label>
+        <input onChange={formRegister.handleChange}  type="email"name='email'id='email'className='form-control mb-3'onBlur={formRegister.handleBlur} />
         {formRegister.errors.email && formRegister.touched.email?<div className='text-danger'>{formRegister.errors.email}</div>:""}
 
-        <label htmlFor="password">password</label>
-        <input onChange={formRegister.handleChange}  type="password"name='password'id='password'className='form-control' onBlur={formRegister.handleBlur}/>
+        <label htmlFor="password">Password</label>
+        <input onChange={formRegister.handleChange}  type="password"name='password'id='password'className='form-control mb-3' onBlur={formRegister.handleBlur}/>
         {formRegister.errors.password && formRegister.touched.password?<div className='text-danger'>{formRegister.errors.password}</div>:""}
 
-        <label htmlFor="rePassword">rePassword</label>
-        <input onChange={formRegister.handleChange}  type="password"name='rePassword'id='rePassword'className='form-control'onBlur={formRegister.handleBlur} />
+        <label htmlFor="rePassword">Re-Password</label>
+        <input onChange={formRegister.handleChange}  type="password"name='rePassword'id='rePassword'className='form-control mb-3'onBlur={formRegister.handleBlur} />
         {formRegister.errors.rePassword && formRegister.touched.rePassword?<div className='text-danger'>{formRegister.errors.rePassword}</div>:""}
 
 
-        <label htmlFor="phone">phone</label>
-        <input onChange={formRegister.handleChange}  type="tel"name='phone'id='phone'className='form-control'onBlur={formRegister.handleBlur} />
+        <label htmlFor="phone">Phone</label>
+        <input onChange={formRegister.handleChange}  type="tel"name='phone'id='phone'className='form-control mb-3'onBlur={formRegister.handleBlur} />
        {formRegister.errors.phone && formRegister.touched.phone ?<div className='text-danger'>{formRegister.errors.phone}</div>:""}
-<Link to='/login' className='mx-3'> have an Account </Link>
-        
+<Link to='/login' className='mx-3 text-start'> have an Account </Link>
+        <br/>
        {loading ? <button disabled={!(formRegister.isValid && formRegister.dirty)} className='btn btn-success my-3'type='submit'>Register</button>:<i className='fas fa-spinner fa-spin'></i>}
         
 </form>
