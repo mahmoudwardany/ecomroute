@@ -9,6 +9,7 @@ export default function Cart() {
    let {getAllCart,cart,removeItem,upDateItem}= useContext(CartContext)
  useEffect(()=>{
   getAllCart()
+  console.log(cart)
  },[])
 
  
@@ -33,10 +34,10 @@ export default function Cart() {
          <td>
           <img src={el.product.imageCover} alt='' height={100} className='w-100 '/> </td>
          <td>{el.product.title}</td>
-         <td>
-         <button className='btn btn-danger btn-sm rounded' onClick={()=>upDateItem(el.product._id,el.count-=1)}>-</button>
-          <span className='mx-3'>{el.count}</span>
-          <button className='btn btn-success btn-sm rounded' onClick={()=>upDateItem(el.product._id,el.count+=1)}>+</button>
+         <td className='  overflow-hidden'>
+         <button className='btn btn-danger btn-sm rounded col-sm-3 col-md-3  ' onClick={()=>upDateItem(el.product._id,el.count-=1)}>-</button>
+          <span className='mx-3 col-sm-12 col-md-3 mx-auto text-sm-center '>{el.count}</span>
+          <button className='btn btn-success btn-sm rounded col-sm-3 col-md-3 ' onClick={()=>upDateItem(el.product._id,el.count+=1)}>+</button>
           </td>
          <td>{el.price}</td>
          <td>
