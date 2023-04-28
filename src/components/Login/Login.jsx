@@ -57,8 +57,11 @@ setLoading(true)
         <label htmlFor="password">password</label>
         <input onChange={formRegister.handleChange}  type="password"name='password'id='password'className='form-control' />
         {formRegister.errors.password ?<div className='text-danger'>{formRegister.errors.password}</div>:""}
-<Link to='/forgetpassword' className='mx-3'>Forget Password</Link>
-<Link to='/register' className='mx-3'>Don't have Account </Link>
+<div className='mt-2 col-md-12'>
+  <Link to='/forgetpassword' className='mx-3 '>Forget Password</Link>
+<Link to='/register' >Don't have an Account </Link>
+</div>
+
 
 <br/>
         {loading ? <button disabled={!(formRegister.isValid && formRegister.dirty)} className='btn btn-success my-3'type='submit'>Login</button>:<i className='fas fa-spinner fa-spin bg-main'></i>}

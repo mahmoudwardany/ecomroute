@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {  useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 export default function Register() {
   const [error,setError]=useState('')
@@ -70,6 +70,7 @@ setLoading(true)
         <label htmlFor="phone">phone</label>
         <input onChange={formRegister.handleChange}  type="tel"name='phone'id='phone'className='form-control'onBlur={formRegister.handleBlur} />
        {formRegister.errors.phone && formRegister.touched.phone ?<div className='text-danger'>{formRegister.errors.phone}</div>:""}
+<Link to='/login' className='mx-3'> have an Account </Link>
         
        {loading ? <button disabled={!(formRegister.isValid && formRegister.dirty)} className='btn btn-success my-3'type='submit'>Register</button>:<i className='fas fa-spinner fa-spin'></i>}
         
