@@ -2,7 +2,6 @@ import React from 'react'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import $ from 'jquery';
 import silde1 from '../../assets/images/slider-image-1.jpeg'
 import silde2 from '../../assets/images/slider-image-2.jpeg'
 import silde3 from '../../assets/images/slider-image-3.jpeg'

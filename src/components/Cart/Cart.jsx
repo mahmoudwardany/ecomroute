@@ -35,19 +35,22 @@ export default function Cart() {
           <img src={el.product.imageCover} alt='' height={100} className='w-100 '/> </td>
          <td>{el.product.title}</td>
          <td className='  overflow-hidden'>
+          
          <button className='btn btn-danger btn-sm rounded col-sm-3 col-md-3  ' onClick={()=>upDateItem(el.product._id,el.count-=1)}>-</button>
-          <span className='mx-3 col-sm-12 col-md-3 mx-auto text-sm-center '>{el.count}</span>
+          <span className='mx-3 col-sm-12 col-md-3 mx-auto text-sm-center '>{el.count < 1 ? "" : el.count}</span>
           <button className='btn btn-success btn-sm rounded col-sm-3 col-md-3 ' onClick={()=>upDateItem(el.product._id,el.count+=1)}>+</button>
           </td>
-         <td>{el.price}</td>
+         <td>{el.count < 1 ? "" : el.price}</td>
          <td>
          <DeleteIcon  className='text-danger' onClick={()=>removeItem(el.product._id)}/>
+       
          </td>
        </tr>
        )}
         <tr className='table-danger'>
           <td colSpan={4}>Total</td>
-          <td>{cart.data.totalCartPrice} EGP</td>
+        
+          <td>{cart.data.totalCartPrice === 0 ? "" : cart.data.totalCartPrice} EGP</td>
         </tr>
       </tbody>
 
