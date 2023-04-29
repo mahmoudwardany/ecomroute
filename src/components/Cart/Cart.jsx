@@ -36,11 +36,11 @@ export default function Cart() {
          <td>{el.product.title}</td>
          <td className='  overflow-hidden'>
           
-         <button className='btn btn-danger btn-sm rounded col-sm-3 col-md-3  ' onClick={()=>upDateItem(el.product._id,el.count-=1)}>-</button>
-          <span className='mx-3 col-sm-12 col-md-3 mx-auto text-sm-center '>{el.count < 1 ? "" : el.count}</span>
-          <button className='btn btn-success btn-sm rounded col-sm-3 col-md-3 ' onClick={()=>upDateItem(el.product._id,el.count+=1)}>+</button>
+         <button disabled={el.count<1} className='btn btn-danger btn-sm rounded col-sm-3 col-md-3  ' onClick={()=>upDateItem(el.product._id,el.count-=1)}>-</button>
+          <span className='mx-3 col-sm-12 col-md-3 mx-auto text-sm-center '>{el.count < 1 ? 0 : el.count}</span>
+          <button  className='btn btn-success btn-sm rounded col-sm-3 col-md-3 ' onClick={()=>upDateItem(el.product._id,el.count+=1)}>+</button>
           </td>
-         <td>{el.count < 1 ? "" : el.price}</td>
+         <td>{ el.count < 1 ? 0 : el.price}</td>
          <td>
          <DeleteIcon  className='text-danger' onClick={()=>removeItem(el.product._id)}/>
        
@@ -50,13 +50,13 @@ export default function Cart() {
         <tr className='table-danger'>
           <td colSpan={4}>Total</td>
         
-          <td>{cart.data.totalCartPrice === 0 ? "" : cart.data.totalCartPrice} EGP</td>
+          <td>{ cart.data.totalCartPrice < 0 ? "" :cart.data.totalCartPrice} EGP</td>
         </tr>
       </tbody>
 
     </Table> :<h1 className='text-center'>"No Products Here"</h1>}
     <Link className='btn btn-success ' to={`/checkout/`+cart.data._id}>Check Out</Link>
-    <Link className='btn btn-info mx-3' to={`/home`}>Shopping</Link>
+    <Link className='btn btn-info mx-3' to={`/ecomroute`}>Shopping</Link>
 
     </div>
   )
