@@ -7,8 +7,12 @@ import { Helmet } from 'react-helmet';
 
 export default function Cart() {
    let {getAllCart,cart,removeItem,upDateItem}= useContext(CartContext)
+
+   async function getcart(){
+    await getAllCart()
+   }
  useEffect(()=>{
-  getAllCart()
+  getcart()
   console.log(cart)
  },[])
 

@@ -14,8 +14,13 @@ async function getAllCart(){
     let headers={
         token:localStorage.getItem('userToken')
     }
-let {data}=await axios.get(`${Base_Url}/api/v1/cart`,{headers})
+    try {
+        let {data}=await axios.get(`${Base_Url}/api/v1/cart`,{headers})
 setCart(data)
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 async function removeItem(id){
     let headers={
