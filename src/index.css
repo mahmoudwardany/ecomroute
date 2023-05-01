@@ -9,6 +9,13 @@ code {
   font-family: 'Shadows Into Light', cursive;
     
 }
+.text-main{
+  color:#0aad0a
+}
+.border-mai{
+ border:solid 1px #0aad0a
+ 
+}
 .cursor{
   cursor: pointer;
 }

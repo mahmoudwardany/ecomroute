@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../share/CartContext";
 import { Table } from "react-bootstrap";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -6,25 +6,31 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 export default function Cart() {
-  let { getAllCart, cart, removeItem, upDateItem } = useContext(CartContext);
+  let { getAllCart, removeItem, upDateItem } = useContext(CartContext);
+const [cartDetails,setCart]=useState(null)
+const [cartId,setCartId]=useState()
 
-  async function getcart() {
-    await getAllCart();
-  }
   useEffect(() => {
-    if(cart !== null){
+   
         getcart();
-    }
+    
   
-  }, [getcart]);
+  }, []);
+  async function getcart() {
+let res=await getAllCart()  
+if(res?.data?.status === 'success'){
+  setCart(res.data.data)
+  setCartId(res.data.data._id)
+}
 
+}
   return (
     <div>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Cart</title>
       </Helmet>
-      {cart !== undefined && cart !== null ? (
+      {cartDetails !== undefined && cartDetails !== null ? (
         <Table striped bordered hover className="mt-3 align-middle text-center">
           <thead>
             <tr>
@@ -36,15 +42,15 @@ export default function Cart() {
             </tr>
           </thead>
           <tbody>
-            {cart?.data?.products?.map((el) => (
-              <tr key={el?._id} className="">
+            {cartDetails?.products.map((el) => (
+              <tr key={el._id} className="">
                 <td>
                   <img
                     src={el?.product?.imageCover}
                     alt=""
-                    className="w-100"
-                    height={100}
-                  />{" "}
+                    className=" w-100"
+                    height={150}
+                  />
                 </td>
                 <td>{el?.product?.title}</td>
                 <td className="  overflow-hidden">
@@ -78,16 +84,16 @@ export default function Cart() {
               <td colSpan={4}>Total</td>
 
               <td>
-                {cart.data.totalCartPrice < 0 ? "" : cart.data.totalCartPrice}{" "}
+                {cartDetails.totalCartPrice < 0 ? "" : cartDetails.totalCartPrice}{" "}
                 EGP
               </td>
             </tr>
           </tbody>
         </Table>
       ) : (
-        <h1 className="text-center">"No Products Here"</h1>
+        <h1 className="text-center">Loading....</h1>
       )}
-      <Link className="btn btn-success " to={`/checkout/` + cart.data._id}>
+      <Link className="btn btn-success " to={`/checkout/` + cartId}>
         Check Out
       </Link>
       <Link className="btn btn-info mx-3" to={`/ecomroute`}>
