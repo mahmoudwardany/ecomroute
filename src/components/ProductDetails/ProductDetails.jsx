@@ -36,7 +36,8 @@ setProductDetail(data.data)
       
       {productDetail !== undefined ?<div className='row justify-content-center mt-4 align-items-center'>
         <div className='col-md-4'>
-          <OwlCarousel lassName='owl-theme' autoPlay={true}autoplayTimeout={1000}  dots={true} loop items={1}>
+          <OwlCarousel lassName='owl-theme' dotsEach={true} autoplay={true}
+          autoplayTimeout={2000}  dots={true} loop items={1}>
             {productDetail.images.map((img,i)=>(
               <img height={400} src={img} alt='' className='w-100' key={i}/>
             ))}
