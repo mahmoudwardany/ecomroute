@@ -31,7 +31,6 @@ const nav=useNavigate()
         const {data}=await axios.post('https://route-ecommerce.onrender.com/api/v1/auth/signin',user).catch((err)=>{
 setError(err.response.data.message)
 setLoading(true)
-
         })
         setLoading(true)
      if(data.message === 'success'){
