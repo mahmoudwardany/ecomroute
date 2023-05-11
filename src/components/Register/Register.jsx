@@ -9,11 +9,11 @@ export default function Register() {
   const [loading,setLoading]=useState(true)
 const nav=useNavigate()
   const validationSchema=Yup.object({
-    name:Yup.string().min(3,'min is 3 char').max(15,'max is 15 char').required('Required'),
+    name:Yup.string().min(3,'Min is 3 char').max(15,'Max is 15 char').required('Required'),
     email:Yup.string().email().required(),
-    password:Yup.string().required('Required').min(8,'must be 8 or more').matches(/^[A-Z][a-zA-Z0-9!@$%^&*_-]{7,15}$/,'must be started A-Z char and a-z or number char ').max(15),
-    rePassword:Yup.string().required().oneOf([Yup.ref('password')],'password must be matched'),
-    phone:Yup.string().required().matches(/^(010|011|012|015)[0-9]{8}$/,'enter valid phone')
+    password:Yup.string().required('Required').min(8,'Must be 8 or more').matches(/^[A-Z][a-zA-Z0-9!@$%^&*_-]{7,15}$/,'Must be started A-Z char and a-z or number char ').max(15),
+    rePassword:Yup.string().required().oneOf([Yup.ref('password')],'Password must be matched'),
+    phone:Yup.string().required().matches(/^(010|011|012|015)[0-9]{8}$/,'Enter valid phone')
       })
       const formRegister=useFormik({
         initialValues:{
