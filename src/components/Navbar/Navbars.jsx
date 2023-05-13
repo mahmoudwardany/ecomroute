@@ -33,7 +33,7 @@ export default function Navbar({ userData, logOut }) {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
                 <li className="nav-item">
                   <Link
-                    className="nav-link active"
+                    className="nav-link active fw-bold"
                     aria-current="page"
                     to="/ecomroute"
                   >
@@ -41,7 +41,7 @@ export default function Navbar({ userData, logOut }) {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" to="cart">
+                  <Link className="nav-link active fw-bold" to="cart">
                     Cart
                   </Link>
                 </li>
@@ -51,12 +51,12 @@ export default function Navbar({ userData, logOut }) {
             {userData === null ? (
              <ul className="navbar-nav ms-auto  mb-2 mb-lg-0 ">
              <li className="nav-item">
-                 <Link className="nav-link active" to="/register">
+                 <Link className="nav-link active fw-bold" to="/register ">
                    Register
                  </Link>
                </li>
                <li className="nav-item">
-                 <Link className="nav-link active" to="login">
+                 <Link className="nav-link active fw-bold" to="login">
                    Login
                  </Link>
                </li>
@@ -71,7 +71,7 @@ export default function Navbar({ userData, logOut }) {
               </Link>
 
               <li className="nav-item cursor">
-                <span className="nav-link " onClick={logOut}>
+                <span className="nav-link fw-bold " onClick={logOut}>
                   Logout
                 </span>
               </li>

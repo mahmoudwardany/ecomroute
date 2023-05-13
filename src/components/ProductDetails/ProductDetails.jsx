@@ -55,7 +55,7 @@ setProductDetail(data.data)
     <StarRateIcon className='text-warning'/> {productDetail.ratingsAverage}
      </div>
           </div>
-     <button className='btn btn-success w-100' onClick={()=>addToCart(productDetail._id)}>Add To Cart</button>
+     <button className='btn btn-success w-100 mb-2' onClick={()=>addToCart(productDetail._id)}>Add To Cart</button>
 
         </div>
         </div>

@@ -2,15 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Shadows+Into+Light&display=swap');
 body {
   margin: 0;
-  font-family: 'Shadows Into Light', cursive,sans-serif;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important
 }
 
-code {
-  font-family: 'Shadows Into Light', cursive;
-    
+@media only screen and (max-width: 767px) {
+  .slideImg{
+  display: none !important;
+  }
+}
+li{
+  font-size: 20px;
 }
 .text-main{
   color:#0aad0a
+}
+.navbar-toggler ,.navbar-nav{
+  text-align: center;
+  margin: auto;
 }
 .border-mai{
  border:solid 1px #0aad0a
