@@ -9,11 +9,11 @@ export default function Register() {
   const [loading,setLoading]=useState(true)
 const nav=useNavigate()
   const validationSchema=Yup.object({
-    name:Yup.string().min(3,'min is 3 char').max(15,'max is 15 char').required('Required'),
-    email:Yup.string().email().required(),
-    password:Yup.string().required('Required').min(8,'must be 8 or more').matches(/^[A-Z][a-zA-Z0-9!@$%^&*_-]{7,15}$/).max(15),
-    rePassword:Yup.string().required().oneOf([Yup.ref('password')],'password must be matched'),
-    phone:Yup.string().required().matches(/^(010|011|012|015)[0-9]{8}$/,'enter valid phone')
+    name:Yup.string().min(3,'Min is 3 char').max(15,'Max is 15 char').required(' Name is required'),
+    email:Yup.string().email('Enter valid email').required('Email is required'),
+    password:Yup.string().required('Password required').min(8,'Must be 8 or more').matches(/^[A-Z][a-zA-Z0-9!@$%^&*_-]{7,15}$/,'Must be started A-Z char and a-z or number char ').max(15),
+    rePassword:Yup.string().required().oneOf([Yup.ref('password')],'Password must be matched'),
+    phone:Yup.string().required().matches(/^(010|011|012|015)[0-9]{8}$/,'Enter valid phone')
       })
       const formRegister=useFormik({
         initialValues:{
@@ -50,21 +50,21 @@ setLoading(true)
       <h1 className='text-success'>Register Now</h1>
 
       <form className='my-3' onSubmit={formRegister.handleSubmit} >
-     {error?<div className='alert alert-danger'>{error}</div>:""}   
+     {error?<div className='alert alert-danger my-2'>{error}</div>:""}   
 <label htmlFor="name">Name</label>
         <input onChange={formRegister.handleChange} type="text"name='name'id='name'className='form-control mb-3' onBlur={formRegister.handleBlur}/>
-        {formRegister.errors.name && formRegister.touched.name ?<div className='text-danger'>{formRegister.errors.name}</div>:""}
+        {formRegister.errors.name && formRegister.touched.name ?<div className='text-danger my-2'>{formRegister.errors.name}</div>:""}
         <label htmlFor="email">Email</label>
         <input onChange={formRegister.handleChange}  type="email"name='email'id='email'className='form-control mb-3'onBlur={formRegister.handleBlur} />
-        {formRegister.errors.email && formRegister.touched.email?<div className='text-danger'>{formRegister.errors.email}</div>:""}
+        {formRegister.errors.email && formRegister.touched.email?<div className='text-danger my-2'>{formRegister.errors.email}</div>:""}
 
         <label htmlFor="password">Password</label>
         <input onChange={formRegister.handleChange}  type="password"name='password'id='password'className='form-control mb-3' onBlur={formRegister.handleBlur}/>
-        {formRegister.errors.password && formRegister.touched.password?<div className='text-danger'>{formRegister.errors.password}</div>:""}
+        {formRegister.errors.password && formRegister.touched.password?<div className='text-danger my-2'>{formRegister.errors.password}</div>:""}
 
         <label htmlFor="rePassword">Re-Password</label>
         <input onChange={formRegister.handleChange}  type="password"name='rePassword'id='rePassword'className='form-control mb-3'onBlur={formRegister.handleBlur} />
-        {formRegister.errors.rePassword && formRegister.touched.rePassword?<div className='text-danger'>{formRegister.errors.rePassword}</div>:""}
+        {formRegister.errors.rePassword && formRegister.touched.rePassword?<div className='text-danger my-2'>{formRegister.errors.rePassword}</div>:""}
 
 
         <label htmlFor="phone">Phone</label>

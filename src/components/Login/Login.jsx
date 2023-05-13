@@ -48,7 +48,6 @@ setLoading(true)
                 <title>Login</title>
             </Helmet>
       <h1 className='text-success'>Login</h1>
-
       <form className='my-3' onSubmit={formRegister.handleSubmit} >
      {error?<div className='alert alert-danger'>{error}</div>:""}   
         <label htmlFor="email">Email</label>
