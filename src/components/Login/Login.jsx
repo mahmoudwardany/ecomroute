@@ -28,16 +28,17 @@ const nav=useNavigate()
       
        async function LoginInApi(user){
         setLoading(false)
-        const {data}=await axios.post('https://route-ecommerce.onrender.com/api/v1/auth/signin',user).catch((err)=>{
+        const {data}=await axios.post('https://route-ecommerce-app.vercel.app/api/v1/auth/signin',user).catch((err)=>{
 setError(err.response.data.message)
 setLoading(true)
+
         })
         setLoading(true)
      if(data.message === 'success'){
       localStorage.setItem('userToken',data.token)
       saveUser()
       setLoading(true)
-      nav('/ecomroute')
+      nav(redirectPath,{replace:true})
     }
        }
   return (

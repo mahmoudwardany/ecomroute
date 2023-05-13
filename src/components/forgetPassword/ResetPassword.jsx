@@ -26,7 +26,7 @@ const nav=useNavigate()
       
        async function resetPassword(user){
         setLoading(false)
-        const {data}=await axios.put('https://route-ecommerce.onrender.com/api/v1/auth/resetPassword',user).catch((err)=>{
+        const {data}=await axios.put('https://route-ecommerce-app.vercel.app/api/v1/auth/resetPassword',user).catch((err)=>{
 setError(err.response.data.message)
 setLoading(true)
 

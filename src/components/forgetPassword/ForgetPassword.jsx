@@ -32,7 +32,7 @@ validationSchema
         }            })
     async function forgetPassword(objData){
         setLoading(false)
-        let {data}=await axios.post(`https://route-ecommerce.onrender.com/api/v1/auth/forgotPasswords`,objData).catch((error)=>{
+        let {data}=await axios.post(`https://route-ecommerce-app.vercel.app/api/v1/auth/forgotPasswords`,objData).catch((error)=>{
             setError(error.response.data.message)
 setLoading(true)
 

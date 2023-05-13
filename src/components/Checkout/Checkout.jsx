@@ -23,7 +23,7 @@ export default function Checkout() {
     let headers={
         token:localStorage.getItem('userToken')
     }
-const {data}=await axios.post(`https://route-ecommerce.onrender.com/api/v1/orders/checkout-session/${id}?url=http://localhost:3000`,body,{headers})
+const {data}=await axios.post(`https://route-ecommerce-app.vercel.app/api/v1/orders/checkout-session/${id}?url=http://localhost:3000`,body,{headers})
  
 console.log(data)
 if(data.status === 'success'){

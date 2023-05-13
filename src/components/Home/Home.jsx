@@ -8,7 +8,7 @@ import CategorySlider from '../CategorySlider/CategorySlider';
 import { Helmet } from 'react-helmet';
 export default function Home() {
   const [productList,setProduct]=useState([])
-  let Base_Url="https://route-ecommerce.onrender.com/api/v1/products"
+  let Base_Url="https://route-ecommerce-app.vercel.app/api/v1/products"
 
   async function getAllProducts(){
     let {data}=await axios.get(`${Base_Url}`)
