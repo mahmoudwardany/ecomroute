@@ -37,7 +37,7 @@ setLoading(true)
       localStorage.setItem('userToken',data.token)
       saveUser()
       setLoading(true)
-      nav(redirectPath,{replace:true})
+      nav('/ecomroute')
     }
        }
   return (
