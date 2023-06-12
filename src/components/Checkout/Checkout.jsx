@@ -37,7 +37,7 @@ if(data.status === 'success'){
                 <meta charSet="utf-8" />
                 <title>Check out</title>
             </Helmet>
-      <h1>Login</h1>
+      <h1>Check out</h1>
 
       <form className='my-3' onSubmit={formRegister.handleSubmit} >
         <label htmlFor="details">details</label>
