@@ -31,7 +31,7 @@ const nav=useNavigate()
        })
        async function sentToApi(user){
         setLoading(false)
-        const {data}=await axios.post('https://route-ecommerce-app.vercel.app/api/v1/auth/signup',user).catch((err)=>{
+        const {data}=await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signup',user).catch((err)=>{
 setError(err.response.data.message)
 console.log(err)
 setLoading(true)

@@ -1,4 +1,4 @@
-import {    RouterProvider, createBrowserRouter} from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout/Layout';
 import Home from './components/Home/Home';
@@ -6,9 +6,9 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './components/Cart/Cart';
-import {  useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import jwtDecode from 'jwt-decode';
-import {  CartContextProvider } from './share/CartContext';
+import { CartContextProvider } from './share/CartContext';
 import Checkout from './components/Checkout/Checkout';
 import ForgetPassword from './components/forgetPassword/ForgetPassword';
 import ResetPassword from './components/forgetPassword/ResetPassword';
@@ -16,44 +16,43 @@ import ProtectRoute from './share/ProtectRoute';
 
 function App() {
 
-  useEffect(()=>{
-    if(localStorage.getItem("userToken") !== null)
-    {
+  useEffect(() => {
+    if (localStorage.getItem("userToken") !== null) {
       saveUser()
 
     }
-  },[])
-  const [userData,setuserData]=useState(null)
-  function saveUser(){
-    let token=localStorage.getItem('userToken')
-    let encodeUser=jwtDecode(token)
+  }, [])
+  const [userData, setuserData] = useState(null)
+  function saveUser() {
+    let token = localStorage.getItem('userToken')
+    let encodeUser = jwtDecode(token)
     setuserData(encodeUser)
   }
 
- 
-  let routes=createBrowserRouter([
-    {
-      path:"",element:<Layout userData={userData} setuserData={setuserData}/>,children:[
-        {path:'register',element:<Register/>},
-        {path:"login",element:<Login saveUser={saveUser}/>},
-        {path:"forgetpassword",element:<ForgetPassword/>},
-        {path:"resetpassword",element:<ResetPassword/>},
-   {path:'ecomroute',element:<ProtectRoute><Home/></ProtectRoute>},
-        {path:'productDetails/:id',element:<ProtectRoute><ProductDetails/></ProtectRoute>},
-        {path:'checkout/:cartId',element:<ProtectRoute><Checkout/></ProtectRoute>},
-        {path:'cart',element:<ProtectRoute><Cart/></ProtectRoute>}
 
-       
+  let routes = createBrowserRouter([
+    {
+      path: "", element: <Layout userData={userData} setuserData={setuserData} />, children: [
+        { path: 'register', element: <Register /> },
+        { path: "login", element: <Login saveUser={saveUser} /> },
+        { path: "forgetpassword", element: <ForgetPassword /> },
+        { path: "resetpassword", element: <ResetPassword /> },
+        { path: 'ecomroute', element: <ProtectRoute><Home /></ProtectRoute> },
+        { path: 'productDetails/:id', element: <ProtectRoute><ProductDetails /></ProtectRoute> },
+        { path: 'checkout/:cartId', element: <ProtectRoute><Checkout /></ProtectRoute> },
+        { path: 'cart', element: <ProtectRoute><Cart /></ProtectRoute> }
+
+
       ]
     }
   ])
 
   return (
     <CartContextProvider >
-      <RouterProvider router={routes}/>
-      
+      <RouterProvider router={routes} />
+
     </CartContextProvider>
-   
+
   );
 }
 

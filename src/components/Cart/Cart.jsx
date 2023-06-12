@@ -11,11 +11,9 @@ const [cartDetails,setCart]=useState(null)
 const [cartId,setCartId]=useState()
 
   useEffect(() => {
-   
         getcart();
-    
-  
   }, []);
+  console.log(cartDetails)
   async function getcart() {
 let res=await getAllCart()  
 if(res?.data?.status === 'success'){

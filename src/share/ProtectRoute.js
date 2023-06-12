@@ -1,4 +1,4 @@
-import { Navigate,useLocation } from "react-router-dom";
+import { Navigate} from "react-router-dom";
 
 const ProtectRoute = ({children}) => {
 if(localStorage.getItem('userToken')===null){
