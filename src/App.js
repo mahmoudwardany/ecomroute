@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout/Layout';
 import Home from './components/Home/Home';
@@ -30,7 +30,7 @@ function App() {
   }
 
 
-  let routes = createBrowserRouter([
+  let routes = createHashRouter([
     {
       path: "", element: <Layout userData={userData} setuserData={setuserData} />, children: [
         { path: 'register', element: <Register /> },
@@ -50,7 +50,6 @@ function App() {
   return (
     <CartContextProvider >
       <RouterProvider router={routes} />
-
     </CartContextProvider>
 
   );

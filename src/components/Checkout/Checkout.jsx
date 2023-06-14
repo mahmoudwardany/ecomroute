@@ -30,7 +30,6 @@ if(data.status === 'success'){
     window.open(data.session.url,'_blank')
 }
 } 
-       
   return (
     <div className='w-75'>
       <Helmet>
