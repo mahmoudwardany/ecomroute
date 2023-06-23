@@ -46,8 +46,8 @@ if(res?.data?.status === 'success'){
                   <img
                     src={el?.product?.imageCover}
                     alt=""
-                    className=" w-100"
-                    height={150}
+                    className="imgCart"
+                    height={100}
                   />
                 </td>
                 <td>{el?.product?.title}</td>

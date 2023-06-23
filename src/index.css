@@ -34,3 +34,23 @@ li{
   font-size: 100px;
   background-color: #333 !important;
 }
+.imgCart{
+  width: 100% !important;
+  height: 220px;
+  background-color:transparent;
+  border: none;
+  margin:0
+}
+td{
+  padding:0 !important
+}
+@media (min-width:500px)and (max-width:770px){
+  .imgCart{
+    height: 150px;
+  }
+}
+@media  (max-width:499px){
+  .imgCart{
+    height: 120px;
+  }
+}
