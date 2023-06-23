@@ -33,16 +33,14 @@ function App() {
   let routes = createHashRouter([
     {
       path: "", element: <Layout userData={userData} setuserData={setuserData} />, children: [
-        { path: 'register', element: <Register /> },
-        { path: "login", element: <Login saveUser={saveUser} /> },
+        { path: 'register', element:!userData? <Register /> :<Home/> },
+        { path: "login", element:!userData? <Login saveUser={saveUser} /> :<Home/>},
         { path: "forgetpassword", element: <ForgetPassword /> },
         { path: "resetpassword", element: <ResetPassword /> },
-        { index:true, element: <ProtectRoute><Home /></ProtectRoute> },
+        {index:true, element: <ProtectRoute><Home /></ProtectRoute> },
         { path: 'productDetails/:id', element: <ProtectRoute><ProductDetails /></ProtectRoute> },
         { path: 'checkout/:cartId', element: <ProtectRoute><Checkout /></ProtectRoute> },
         { path: 'cart', element: <ProtectRoute><Cart /></ProtectRoute> }
-
-
       ]
     }
   ])
