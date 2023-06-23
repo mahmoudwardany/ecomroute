@@ -37,7 +37,7 @@ function App() {
         { path: "login", element: <Login saveUser={saveUser} /> },
         { path: "forgetpassword", element: <ForgetPassword /> },
         { path: "resetpassword", element: <ResetPassword /> },
-        { path: 'ecomroute', element: <ProtectRoute><Home /></ProtectRoute> },
+        { index:true, element: <ProtectRoute><Home /></ProtectRoute> },
         { path: 'productDetails/:id', element: <ProtectRoute><ProductDetails /></ProtectRoute> },
         { path: 'checkout/:cartId', element: <ProtectRoute><Checkout /></ProtectRoute> },
         { path: 'cart', element: <ProtectRoute><Cart /></ProtectRoute> }
