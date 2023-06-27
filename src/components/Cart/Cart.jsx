@@ -94,7 +94,7 @@ if(res?.data?.status === 'success'){
       <Link className="btn btn-success " to={`/checkout/` + cartId}>
         Check Out
       </Link>
-      <Link className="btn btn-info mx-3" to={`/ecomroute`}>
+      <Link className="btn btn-info mx-3" to={`/`}>
         Shopping
       </Link>
     </div>
